@@ -6,7 +6,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import Vue from 'vue'
+// import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 
 // @Component({
@@ -16,7 +17,10 @@ import HelloWorld from './components/HelloWorld.vue';
 // })
 // export default class App extends Vue {}
 export default Vue.extend({
-  name: 'App'
+  name: 'App',
+  components: {
+    HelloWorld
+  }
 })
 </script>
 
