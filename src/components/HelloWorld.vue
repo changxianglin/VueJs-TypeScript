@@ -1,38 +1,54 @@
 <template>
   <div class="hello">
     <h1>{{msg}}</h1>
-    <h1>{{firstName}}</h1>
-    <h1>{{lastName}}</h1>
-    <h1>{{fullName}}</h1>
-    <h4>{{counter}}</h4>
-    <button @click="IncrementCounter()">Press Me</button>
+    <h1>{{test}}</h1>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import Vue from 'vue'
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-  firstName = "Hello World!"
-  lastName = 'Hello Wrold'
-  counter = 0
-
-  mounted() {
-    console.log('mounted')
+export default Vue.extend({
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  data() {
+    return {
+      test: "Hello TS!" as string
+    }
+  },
+  methods: {
+    pressMe(): string {
+      return this.test + 'banana'
+    }
   }
-
-  get fullName(): string {
-    return this.firstName + this.lastName
-  }
-
-  IncrementCounter() {
-    this.counter++
-  }
-
-}
+})
 </script>
+
+// import { Component, Prop, Vue } from 'vue-property-decorator';
+
+// @Component
+// export default class HelloWorld extends Vue {
+//   @Prop() private msg!: string;
+//   firstName = "Hello World!"
+//   lastName = 'Hello Wrold'
+//   counter = 0
+
+//   mounted() {
+//     console.log('mounted')
+//   }
+
+//   get fullName(): string {
+//     return this.firstName + this.lastName
+//   }
+
+//   IncrementCounter() {
+//     this.counter++
+//   }
+
+// }
+// </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
